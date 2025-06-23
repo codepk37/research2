@@ -3,14 +3,14 @@ var iframe_names = [['colormug-black-sem', 'colormug-white-sem', 'colormug-blue-
                     ['flowers-rose-sem', 'flowers-daisy-sem','flowers-rose-vase-sem', 'flowers-daisy-vase-sem'],
                     ['tools-measuring-sem', 'tools-screwdriver-sem', 'tools-wirecutter-sem', 'tools-hammer-sem', 'tools-solder-sem'],
                     ['fragile-camera-sem', 'fragile-pinksunglasses-sem', 'fragile-bluesunglasses-sem', 'fragile-lightbulb-sem' ],
-                    ['cooking-pan-handle-sem', 'cooking-pan-knob-sem', 'cooking-spice-lid-sem', 'cooking-spice-body-sem', 'cooking-olive-cork-sem', 'cooking-olive-neck-sem']
-                    ];
+                    ['black-pot-handle-sem', 'electric-stove-sem', 'purple-onion-sem', 'golden-bottle-sem']
+                  ];
 var iframe_names_geo = [['colormug-black-geo', 'colormug-white-geo', 'colormug-blue-geo', 'colormug-pink-geo', 'colormug-teal-geo'],
                         ['coords-ethernet-geo', 'coords-ethernet-usb-geo', 'coords-power-geo'],
                         ['flowers-rose-geo', 'flowers-daisy-geo','flowers-rose-vase-geo', 'flowers-daisy-vase-geo'],
                         ['tools-measuring-geo', 'tools-screwdriver-geo', 'tools-wirecutter-geo', 'tools-hammer-geo', 'tools-solder-geo'],
                         ['fragile-camera-geo', 'fragile-pinksunglasses-geo', 'fragile-bluesunglasses-geo', 'fragile-lightbulb-geo' ],
-                        ['cooking-pan-handle-geo', 'cooking-pan-knob-geo', 'cooking-spice-lid-geo', 'cooking-spice-body-geo', 'cooking-olive-cork-geo', 'cooking-olive-neck-geo']
+                        ['black-pot-handle-geo', 'electric-stove-geo', 'purple-onion-geo', 'golden-bottle-geo']
                       ];
 var iframes = [];
 var curr_type = 0;
@@ -20,8 +20,9 @@ const optionsSets = [
   ['Black Mug; Handle', 'White Mug; Rim', 'Blue Mug; Handle', 'Pink Teacup; Handle', 'Teal Mug; Rim'],
   ['Ethernet Dongle; Port', 'Ethernet Dongle; USB', 'Power Strip; Base'],
   ['Rose; Plant Stem', 'Daisy; Plant Stem','Rose; White Vase','Daisy; White Vase'],
-  ['Measuring Tape; Base', 'Screwdriver; Handle', 'Wirecutter; Handle', 'Hammer; Handle', 'Soldering Iron; Handle'],
-  ['Camera; Strap', 'Pink Sunglasses; Earhooks', 'Blue Sunglasses; Earhooks', 'Lightbulb; Screw'],
+  ['Measuring Tape; Base', 'Screwdriver; Handle', 'Wirecutter; Handle', 'Plier; Handle', 'Soldering Iron; Handle'],
+  ['Camera; Strap', 'Pink Sunglasses; Earhooks', 'Black Sunglasses; Earhooks', 'Lightbulb; Screw'],
+  ['Black Pot; Handle' , 'Electric Stove; Knob','Purple Onion; Leaf','Golden Bottle; Neck'  ]
 ];
 
 $(function() {
