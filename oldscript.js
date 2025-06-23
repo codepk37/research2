@@ -1,11 +1,13 @@
-var iframe_names = [['colormug-black-sem', 'colormug-white-sem', 'colormug-blue-sem', 'colormug-pink-sem', 'colormug-teal-sem'],
+// ############
+var iframe_names = [['colormug-black-sem', 'colormug-white-rim-sem', 'colormug-white-sem', 'colormug-blue-sem', 'colormug-pink-sem', 'colormug-teal-sem','colormug-teal-rim-sem'],
                     ['coords-ethernet-sem', 'coords-ethernet-usb-sem', 'coords-power-sem', 'coords-power-plug-sem'],
                     ['flowers-rose-sem', 'flowers-daisy-sem'],
                     ['tools-measuring-sem', 'tools-screwdriver-sem', 'tools-wirecutter-sem', 'tools-hammer-sem', 'tools-solder-sem'],
                     ['fragile-camera-sem', 'fragile-pinksunglasses-sem', 'fragile-bluesunglasses-sem', 'fragile-lightbulb-sem' ],
                     ['cooking-pan-handle-sem', 'cooking-pan-knob-sem', 'cooking-spice-lid-sem', 'cooking-spice-body-sem', 'cooking-olive-cork-sem', 'cooking-olive-neck-sem']
                     ];
-var iframe_names_geo = [['colormug-black-geo', 'colormug-white-geo', 'colormug-blue-geo', 'colormug-pink-geo', 'colormug-teal-geo'],
+// ############
+var iframe_names_geo = [['colormug-black-geo', 'colormug-white-rim-geo', 'colormug-white-geo', 'colormug-blue-geo', 'colormug-pink-geo', 'colormug-teal-geo','colormug-teal-rim-geo'],
                         ['coords-ethernet-geo', 'coords-ethernet-usb-geo', 'coords-power-geo', 'coords-power-plug-geo'],
                         ['flowers-rose-geo', 'flowers-daisy-geo'],
                         ['tools-measuring-geo', 'tools-screwdriver-geo', 'tools-wirecutter-geo', 'tools-hammer-geo', 'tools-solder-geo'],
@@ -16,8 +18,9 @@ var iframes = [];
 var curr_type = 0;
 var selected_option = 0;
 
+// #########
 const optionsSets = [
-  ['Black Mug; Handle', 'White Mug; Handle', 'Blue Mug; Handle', 'Pink Teacup; Handle', 'Teal Mug; Handle'],
+  ['Black Mug; Handle','White Mug; Rim' , 'White Mug; Handle', 'Blue Mug; Handle', 'Pink Teacup; Handle', 'Teal Mug; Handle','Teal Mug; Rim'],
   ['Ethernet Dongle; Port', 'Ethernet Dongle; USB', 'Power Strip; Base', 'Power Strip; Plug'],
   ['Rose; Plant Stem', 'Daisy; Plant Stem'],
   ['Measuring Tape; Base', 'Screwdriver; Handle', 'Wirecutter; Handle', 'Hammer; Handle', 'Soldering Iron; Handle'],
@@ -264,3 +267,6 @@ window.addEventListener('click', function(event) {
 });
 
 
+
+
+// https://codepk37.github.io/viser_host/?playbackPath=https://raw.githubusercontent.com/codepk37/research2/main/data_sv/phoenix/lerf/colormug/Black_Mug_Handle_lerf_0.95_0.95.viser&initialCameraPosition=1.2277807053783034, -0.1515973505740899, 0.07392744647942791&initialCameraLookAt=0,0,0&initialCameraUp=0,1,0
