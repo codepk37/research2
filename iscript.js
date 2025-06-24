@@ -78,7 +78,7 @@ var curr_type = 0;
 var selected_option = 0;
 
 const optionsSets = [
-  ['Black Mug; Handle', 'White Mug; Rim', 'Blue Mug; Handle', 'Pink Teacup; Handle', 'Teal Mug; Rim'],
+  ['Black Mug; Handle', 'White Glass; Rim', 'Blue Mug; Handle', 'Pink Teacup; Handle', 'Teal Mug; Rim'],
   ['Ethernet Dongle; Port', 'Ethernet Dongle; USB', 'Power Strip; Base'],
   ['Rose; Plant Stem', 'Daisy; Plant Stem','Rose; White Vase','Daisy; White Vase'],
   ['Measuring Tape; Base', 'Screwdriver; Handle', 'Wirecutter; Handle', 'Plier; Handle', 'Soldering Iron; Handle'],
