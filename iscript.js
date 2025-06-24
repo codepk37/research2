@@ -1,31 +1,91 @@
-// ############
-var iframe_names = [['colormug-black-sem', 'colormug-white-rim-sem', 'colormug-white-sem', 'colormug-blue-sem', 'colormug-pink-sem', 'colormug-teal-sem','colormug-teal-rim-sem'],
-                    ['coords-ethernet-sem', 'coords-ethernet-usb-sem', 'coords-power-sem', 'coords-power-plug-sem'],
-                    ['flowers-rose-sem', 'flowers-daisy-sem'],
-                    ['tools-measuring-sem', 'tools-screwdriver-sem', 'tools-wirecutter-sem', 'tools-hammer-sem', 'tools-solder-sem'],
-                    ['fragile-camera-sem', 'fragile-pinksunglasses-sem', 'fragile-bluesunglasses-sem', 'fragile-lightbulb-sem' ],
-                    ['cooking-pan-handle-sem', 'cooking-pan-knob-sem', 'cooking-spice-lid-sem', 'cooking-spice-body-sem', 'cooking-olive-cork-sem', 'cooking-olive-neck-sem']
-                    ];
-// ############
-var iframe_names_geo = [['colormug-black-geo', 'colormug-white-rim-geo', 'colormug-white-geo', 'colormug-blue-geo', 'colormug-pink-geo', 'colormug-teal-geo','colormug-teal-rim-geo'],
-                        ['coords-ethernet-geo', 'coords-ethernet-usb-geo', 'coords-power-geo', 'coords-power-plug-geo'],
-                        ['flowers-rose-geo', 'flowers-daisy-geo'],
-                        ['tools-measuring-geo', 'tools-screwdriver-geo', 'tools-wirecutter-geo', 'tools-hammer-geo', 'tools-solder-geo'],
-                        ['fragile-camera-geo', 'fragile-pinksunglasses-geo', 'fragile-bluesunglasses-geo', 'fragile-lightbulb-geo' ],
-                        ['cooking-pan-handle-geo', 'cooking-pan-knob-geo', 'cooking-spice-lid-geo', 'cooking-spice-body-geo', 'cooking-olive-cork-geo', 'cooking-olive-neck-geo']
-                      ];
+// var iframe_names = [['colormug-black-sem', 'colormug-white-sem', 'colormug-blue-sem', 'colormug-pink-sem', 'colormug-teal-sem'],
+//                       ['coords-ethernet-sem', 'coords-ethernet-usb-sem', 'coords-power-sem'],
+//                       ['flowers-rose-sem', 'flowers-daisy-sem','flowers-rose-vase-sem', 'flowers-daisy-vase-sem'],
+//                       ['tools-measuring-sem', 'tools-screwdriver-sem', 'tools-wirecutter-sem', 'tools-hammer-sem', 'tools-solder-sem'],
+//                       ['fragile-camera-sem', 'fragile-pinksunglasses-sem', 'fragile-bluesunglasses-sem', 'fragile-lightbulb-sem' ],
+//                       ['black-pot-handle-sem', 'electric-stove-sem', 'purple-onion-sem', 'golden-bottle-sem']
+//                     ];
+// var iframe_names_geo = [['colormug-black-geo', 'colormug-white-geo', 'colormug-blue-geo', 'colormug-pink-geo', 'colormug-teal-geo'],
+//                           ['coords-ethernet-geo', 'coords-ethernet-usb-geo', 'coords-power-geo'],
+//                           ['flowers-rose-geo', 'flowers-daisy-geo','flowers-rose-vase-geo', 'flowers-daisy-vase-geo'],
+//                           ['tools-measuring-geo', 'tools-screwdriver-geo', 'tools-wirecutter-geo', 'tools-hammer-geo', 'tools-solder-geo'],
+//                           ['fragile-camera-geo', 'fragile-pinksunglasses-geo', 'fragile-bluesunglasses-geo', 'fragile-lightbulb-geo' ],
+//                           ['black-pot-handle-geo', 'electric-stove-geo', 'purple-onion-geo', 'golden-bottle-geo']
+//                         ];
+var iframe_names_1 = [
+  ['colormug-black-sem-1'],
+  ['coords-ethernet-sem-1'],
+  ['flowers-rose-sem-1'],
+  ['tools-measuring-sem-1'],
+  ['fragile-camera-sem-1'],
+  ['black-pot-handle-sem-1']
+];
+var iframe_names_geo_1 = [
+  ['colormug-black-geo-1'],
+  ['coords-ethernet-geo-1'],
+  ['flowers-rose-geo-1'],
+  ['tools-measuring-geo-1'],
+  ['fragile-camera-geo-1'],
+  ['black-pot-handle-geo-1']
+];
+
+
+var iframe_names_2 = [
+  ['colormug-black-sem-2', 'colormug-white-sem-2', 'colormug-blue-sem-2', 'colormug-pink-sem-2', 'colormug-teal-sem-2'],
+  ['coords-ethernet-sem-2', 'coords-ethernet-usb-sem-2', 'coords-power-sem-2'],
+  ['flowers-rose-sem-2', 'flowers-daisy-sem-2','flowers-rose-vase-sem-2', 'flowers-daisy-vase-sem-2'],
+  ['tools-measuring-sem-2', 'tools-screwdriver-sem-2', 'tools-wirecutter-sem-2', 'tools-hammer-sem-2', 'tools-solder-sem-2'],
+  ['fragile-camera-sem-2', 'fragile-pinksunglasses-sem-2', 'fragile-bluesunglasses-sem-2', 'fragile-lightbulb-sem-2'],
+  ['black-pot-handle-sem-2', 'electric-stove-sem-2', 'purple-onion-sem-2', 'golden-bottle-sem-2']
+];
+
+var iframe_names_geo_2 = [
+  ['colormug-black-geo-2', 'colormug-white-geo-2', 'colormug-blue-geo-2', 'colormug-pink-geo-2', 'colormug-teal-geo-2'],
+  ['coords-ethernet-geo-2', 'coords-ethernet-usb-geo-2', 'coords-power-geo-2'],
+  ['flowers-rose-geo-2', 'flowers-daisy-geo-2','flowers-rose-vase-geo-2', 'flowers-daisy-vase-geo-2'],
+  ['tools-measuring-geo-2', 'tools-screwdriver-geo-2', 'tools-wirecutter-geo-2', 'tools-hammer-geo-2', 'tools-solder-geo-2'],
+  ['fragile-camera-geo-2', 'fragile-pinksunglasses-geo-2', 'fragile-bluesunglasses-geo-2', 'fragile-lightbulb-geo-2'],
+  ['black-pot-handle-geo-2', 'electric-stove-geo-2', 'purple-onion-geo-2', 'golden-bottle-geo-2']
+];
+
+
+  
+                        
+var iframe_names_3 = [
+  ['colormug-black-sem-3', 'colormug-white-sem-3', 'colormug-blue-sem-3', 'colormug-pink-sem-3', 'colormug-teal-sem-3'],
+  ['coords-ethernet-sem-3', 'coords-ethernet-usb-sem-3', 'coords-power-sem-3'],
+  ['flowers-rose-sem-3', 'flowers-daisy-sem-3','flowers-rose-vase-sem-3', 'flowers-daisy-vase-sem-3'],
+  ['tools-measuring-sem-3', 'tools-screwdriver-sem-3', 'tools-wirecutter-sem-3', 'tools-hammer-sem-3', 'tools-solder-sem-3'],
+  ['fragile-camera-sem-3', 'fragile-pinksunglasses-sem-3', 'fragile-bluesunglasses-sem-3', 'fragile-lightbulb-sem-3'],
+  ['black-pot-handle-sem-3', 'electric-stove-sem-3', 'purple-onion-sem-3', 'golden-bottle-sem-3']
+];
+
+var iframe_names_geo_3 = [
+  ['colormug-black-geo-3', 'colormug-white-geo-3', 'colormug-blue-geo-3', 'colormug-pink-geo-3', 'colormug-teal-geo-3'],
+  ['coords-ethernet-geo-3', 'coords-ethernet-usb-geo-3', 'coords-power-geo-3'],
+  ['flowers-rose-geo-3', 'flowers-daisy-geo-3','flowers-rose-vase-geo-3', 'flowers-daisy-vase-geo-3'],
+  ['tools-measuring-geo-3', 'tools-screwdriver-geo-3', 'tools-wirecutter-geo-3', 'tools-hammer-geo-3', 'tools-solder-geo-3'],
+  ['fragile-camera-geo-3', 'fragile-pinksunglasses-geo-3', 'fragile-bluesunglasses-geo-3', 'fragile-lightbulb-geo-3'],
+  ['black-pot-handle-geo-3', 'electric-stove-geo-3', 'purple-onion-geo-3', 'golden-bottle-geo-3']
+];
+
+
+
+
+
 var iframes = [];
 var curr_type = 0;
 var selected_option = 0;
 
-// #########
 const optionsSets = [
-  ['Black Mug; Handle','White Mug; Rim' , 'White Mug; Handle', 'Blue Mug; Handle', 'Pink Teacup; Handle', 'Teal Mug; Handle','Teal Mug; Rim'],
-  ['Ethernet Dongle; Port', 'Ethernet Dongle; USB', 'Power Strip; Base', 'Power Strip; Plug'],
-  ['Rose; Plant Stem', 'Daisy; Plant Stem'],
-  ['Measuring Tape; Base', 'Screwdriver; Handle', 'Wirecutter; Handle', 'Hammer; Handle', 'Soldering Iron; Handle'],
-  ['Camera; Strap', 'Pink Sunglasses; Earhooks', 'Blue Sunglasses; Earhooks', 'Lightbulb; Screw'],
+  ['Black Mug; Handle', 'White Mug; Rim', 'Blue Mug; Handle', 'Pink Teacup; Handle', 'Teal Mug; Rim'],
+  ['Ethernet Dongle; Port', 'Ethernet Dongle; USB', 'Power Strip; Base'],
+  ['Rose; Plant Stem', 'Daisy; Plant Stem','Rose; White Vase','Daisy; White Vase'],
+  ['Measuring Tape; Base', 'Screwdriver; Handle', 'Wirecutter; Handle', 'Plier; Handle', 'Soldering Iron; Handle'],
+  ['Camera; Strap', 'Pink Sunglasses; Earhooks', 'Black Sunglasses; Earhooks', 'Lightbulb; Screw'],
+  ['Black Pot; Handle' , 'Electric Stove; Knob','Purple Onion; Leaf','Golden Bottle; Neck'  ]
 ];
+
 
 $(function() {
   current_iframe_idx = 0;
@@ -50,15 +110,49 @@ $(function() {
   };
 });
 
-function load_iframes() {
+function load_iframes1() {
   var geo = [];
   var sem = [];
-  for (var i = 0; i < iframe_names.length; i++) {
+  for (var i = 0; i < iframe_names_1.length; i++) {
     var geo_temp = [];
     var sem_temp = [];
-    for (var j = 0; j < iframe_names[i].length; j++) {
-      sem_temp.push(document.getElementById(iframe_names[i][j])); 
-      geo_temp.push(document.getElementById(iframe_names_geo[i][j])); 
+    for (var j = 0; j < iframe_names_1[i].length; j++) {
+      sem_temp.push(document.getElementById(iframe_names_1[i][j])); 
+      geo_temp.push(document.getElementById(iframe_names_geo_1[i][j])); 
+    }
+    sem.push(sem_temp); 
+    geo.push(geo_temp); 
+  }
+  iframes.push(sem);
+  iframes.push(geo);
+}
+
+function load_iframes2() {
+  var geo = [];
+  var sem = [];
+  for (var i = 0; i < iframe_names_2.length; i++) {
+    var geo_temp = [];
+    var sem_temp = [];
+    for (var j = 0; j < iframe_names_2[i].length; j++) {
+      sem_temp.push(document.getElementById(iframe_names_2[i][j])); 
+      geo_temp.push(document.getElementById(iframe_names_geo_2[i][j])); 
+    }
+    sem.push(sem_temp); 
+    geo.push(geo_temp); 
+  }
+  iframes.push(sem);
+  iframes.push(geo);
+}
+
+function load_iframes3() {
+  var geo = [];
+  var sem = [];
+  for (var i = 0; i < iframe_names_3.length; i++) {
+    var geo_temp = [];
+    var sem_temp = [];
+    for (var j = 0; j < iframe_names_3[i].length; j++) {
+      sem_temp.push(document.getElementById(iframe_names_3[i][j])); 
+      geo_temp.push(document.getElementById(iframe_names_geo_3[i][j])); 
     }
     sem.push(sem_temp); 
     geo.push(geo_temp); 
@@ -267,6 +361,3 @@ window.addEventListener('click', function(event) {
 });
 
 
-
-
-// https://codepk37.github.io/viser_host/?playbackPath=https://raw.githubusercontent.com/codepk37/research2/main/data_sv/phoenix/lerf/colormug/Black_Mug_Handle_lerf_0.95_0.95.viser&initialCameraPosition=1.2277807053783034, -0.1515973505740899, 0.07392744647942791&initialCameraLookAt=0,0,0&initialCameraUp=0,1,0
