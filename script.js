@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ['Ethernet Dongle; Port', 'Ethernet Dongle; USB', 'Power Strip; Base'],
         ['Rose; Plant Stem', 'Daisy; Plant Stem', 'Rose; White Vase', 'Daisy; White Vase'],
         ['Measuring Tape; Base', 'Screwdriver; Handle', 'Plier; Handle', 'Hammer; Handle', 'Soldering Iron; Handle'],
-        ['Camera; Strap', 'Pink Sunglasses; Earhooks', 'Black Sunglasses; Earhooks', 'Lightbulb; Screw'],
+        ['Camera; Base', 'Pink Sunglasses; Earhooks', 'Black Sunglasses; Earhooks', 'Lightbulb; Screw'],
         ['Black Pot; Handle', 'Electric Stove; Knob', 'Purple Onion; Leaf', 'Golden Bottle; Neck']
     ];
 
