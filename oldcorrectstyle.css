@@ -1,0 +1,585 @@
+--- START OF FILE style.css ---
+
+body {
+    margin: 0;
+    min-height: 100%;
+    background-color: #fff;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 12px;
+    line-height: 20px;
+    overflow-x: hidden;
+}
+
+.section {
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.container {
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 940px;
+}
+
+.title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Varela Round',sans-serif;
+    color: #4d4d4d;
+    font-size: 50px;
+    line-height: 65px;
+    font-weight: 700;
+    letter-spacing: 4;
+}
+
+.title-mobile {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Varela Round',sans-serif;
+    color: #4d4d4d;
+    font-size: 40px;
+    line-height: 65px;
+    font-weight: 700;
+    letter-spacing: 4;
+}
+
+.subheader {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 25px;
+    line-height: 44px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+.tldr {
+    margin-top: 30px;
+    margin-bottom: 3px;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.results-text {
+    margin-top: 30px;
+    margin-bottom: 3px;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.title-row {
+    margin-top: 20px;
+}
+
+.base-row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.base-col {
+    position: relative;
+    float: left;
+    min-height: 1px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.author-row {
+    height: 25px;
+}
+
+.author-col {
+    width: 20%;
+}
+
+.prof-row {
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prof-col {
+    width: 20%;
+}
+
+.author-text {
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.text-star {
+    position: relative;
+    top: -7px;
+    display: inline-block;
+    margin: 0px;
+    font-size: 10px;
+}
+
+#uc-berkeley {
+    padding-top: 10px;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px;
+    letter-spacing: 0;
+}
+
+#equal-contrib {
+    padding-top: 10px;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.icon-col {
+    width: 33.33333%;
+}
+
+.icon-img {
+    max-width: 35%;
+    margin-right: auto;
+    margin-bottom: 1px;
+    margin-left: auto;
+    padding-top: 0px;
+}
+
+.github-img-icon {
+    max-width: 30%;
+    margin-top: 6px;
+    margin-bottom: 9px;
+    opacity: .77;
+}
+
+.data-img-icon {
+    max-width: 30%;
+    margin-top: 5px;
+    margin-bottom: 9px;
+    opacity: .62;
+}
+
+.link-block {
+    display: block;
+    max-width: 100%;
+    margin-right: auto;
+    margin-bottom: -14px;
+    margin-left: auto;
+    text-align: center;
+}
+
+.link-labels {
+    display: inline-block;
+    width: 60%;
+    margin-top: 5px;
+}
+
+.link-labels-text {
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 14px;
+}
+
+.paragraph {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.thumbnails {
+    width: 90%;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thumbnail-btn {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff;
+    padding-bottom: 8px;
+    border-radius: 10px;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+.thumbnail-btn:hover   {
+    background-color: #eaeaea;
+}
+
+.active-btn   {
+    background-color: #d9e8ec;
+}
+
+.thumbnail-row {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.thumbnail-row::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.thumbnail-row {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+.thumbnail-col {
+    width: 22%;
+    flex: 1 0 22%;
+}
+
+.iframe-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+}
+
+.iframe-container .iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+iframe {
+    display: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+  
+iframe.show {
+    display: block;
+}
+
+.viewer-bar {
+    width: 33.33%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 73px;
+    height: 34px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+  
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .2s;
+    transition: .2s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(39px);
+    -ms-transform: translateX(39px);
+    transform: translateX(39px);
+}
+
+.video-bar {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video-btn {
+    width: 40px;
+    height: 40px;
+    padding: 8px 6px 8px 6px;
+    margin: 0px 10px 0px 0px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: #2196F3;
+    padding-bottom: 8px;
+    border-radius: 10px;
+}
+
+.video-btn:hover {
+    background-color: #0b7dda;
+}
+
+.video-export {
+    text-align: right;
+}
+
+.switch .labels {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-family: sans-serif;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+.switch .labels::after {
+    content: attr(data-off);
+    position: absolute;
+    right: 8px;
+    color: #4d4d4d;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+.switch .labels::before {
+    content: attr(data-on);
+    position: absolute;
+    left: 8px;
+    color: #ffffff;
+    opacity: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+
+.switch input:checked~.labels::after {
+    opacity: 0;
+}
+
+.switch input:checked~.labels::before {
+    opacity: 1;
+}
+
+.opacity-col {
+    text-align: left;
+}
+
+.slide-arrow {
+    display: flex;
+    top: 0;
+    bottom: 0;
+    margin-top: 35px;
+    height: 4rem;
+    background-color: #6dbdff;
+    border: none;
+    width: 5%;
+    font-size: 3rem;
+    padding: 0;
+    cursor: pointer;
+    opacity: 1.0;
+    transition: color 100ms;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+  
+.slide-arrow:hover,
+.slide-arrow:focus {
+    background-color: #2196F3;
+    opacity: 1;
+}
+
+.slide-arrow-prev {
+    float: left;
+    left: 10;
+    margin-right: 1%;
+    border-radius: 2rem;
+}
+
+.slide-arrow-next {
+    float: right;
+    right: 10;
+    margin-left: 1%;
+    border-radius: 2rem;
+}
+
+.add-top-padding{
+    margin-top: 10px;
+}
+
+.results-container {
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+/* Style the custom dropdown container */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the default selected option */
+.custom-dropdown .dropdown-btn {
+    background-color: #2196F3;
+}
+  
+/* Style the dropdown button */
+.dropdown-btn {
+    font-family: sans-serif;
+    color: #fff;
+    position: relative;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    min-width: 200px;
+    text-align: center;
+}
+
+.dropdown-btn:hover   {
+    background-color: #0b7dda;
+}
+  
+/* Style the selected option text */
+.selected-option {
+    margin-right: 10px;
+}
+  
+/* Style the down arrow icon */
+.arrow {
+    font-size: 10px;
+}
+  
+/* Style the dropdown menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    z-index: 100;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    animation: fadeInDown 0.3s ease;
+    width: 100%;
+}
+
+/* Style the dropdown menu items (options) */
+.dropdown-menu li {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #2196F3;
+  }
+  
+  /* Highlight the option on hover */
+  .dropdown-menu li:hover {
+    background-color: #e5e5e5;
+  }
+  
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+/* Show the dropdown menu when the button is clicked */
+.dropdown-menu.show {
+    display: block;
+}
+
+@media screen and (max-width: 750px) {
+    .slide-arrow {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .subheader {
+        font-size: 16px;
+    }
+    .author-text {
+        font-size: 12px;
+    }
+    .author-row {
+        height: 35px;
+    }
+    #uc-berkeley {
+        font-size: 12px;
+    }
+    .slide-arrow {
+        margin-top: 15px;
+    }
+}
