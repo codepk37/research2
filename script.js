@@ -2,6 +2,49 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- NEW: DATA FOR INPUT IMAGES ---
+    // NOTE: Please verify the folder names and image counts are correct.
+    // The folder names must exactly match your directory structure, including spaces.
+    // I am assuming 35 images per folder (img0.jpg to img34.jpg) for the old dataset.
+    const inputImagesData = {
+        // 'geo' corresponds to the Original (Old) dataset
+        geo: [
+            { folder: 'colorful mugs', count: 35 },
+            { folder: 'cords', count: 35 },
+            { folder: 'flowers', count: 35 },
+            { folder: 'tools', count: 35 },
+            { folder: 'fragile items', count: 35 },
+            { folder: 'cooking', count: 35 }
+        ],
+        // 'sem' corresponds to the Created (New) dataset
+        sem: [
+            'data_sv/thumbnails/blackmug_thumbnail.png',
+            'data_sv/thumbnails/coords.png',
+            'data_sv/thumbnails/flowers.png',
+            'data_sv/thumbnails/tools.png',
+            'data_sv/thumbnails/fragile.png',
+            'data_sv/thumbnails/cooking.png'
+        ]
+    };
+
+    // --- NEW: MODAL LOGIC (GLOBAL) ---
+    const modal = document.getElementById('image-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImageGallery = document.getElementById('modal-image-gallery');
+    const closeModalBtn = document.querySelector('.modal-close');
+
+    if (modal) {
+        closeModalBtn.onclick = () => {
+            modal.style.display = 'none';
+        };
+    
+        window.onclick = (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+    }
+
     // --- DATA FOR ALL VIEWERS ---
     const iframe_names_1 = {
         sem: [['colormug-black-sem-1'], ['coords-ethernet-sem-1'], ['flowers-rose-sem-1'], ['tools-measuring-sem-1'], ['fragile-camera-sem-1'], ['cooking-pan-handle-sem-1']],
@@ -70,9 +113,47 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdownMenu = container.querySelector('.dropdown-menu');
         const slideLeftBtn = container.querySelector('.slide-arrow-prev');
         const slideRightBtn = container.querySelector('.slide-arrow-next');
+        const showInputBtns = container.querySelectorAll('.show-inputs-btn');
         
         let currentSceneIndex = 0;
         let currentOptionIndex = 0;
+
+        // --- NEW: EVENT LISTENERS FOR 'SHOW INPUTS' BUTTONS ---
+        showInputBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const viewerType = btn.dataset.viewerType; // 'geo' or 'sem'
+    
+                modalImageGallery.innerHTML = ''; // Clear previous content
+                
+                if (viewerType === 'geo') {
+                    // Old dataset with multiple images
+                    modalTitle.textContent = 'Input Images (Original Dataset)';
+                    modalImageGallery.classList.remove('single-image');
+    
+                    const sceneData = inputImagesData.geo[currentSceneIndex];
+                    const basePath = `data_sv/lerftogo_dataset/${sceneData.folder}/`;
+                    for (let i = 0; i < sceneData.count; i++) {
+                        const img = document.createElement('img');
+                        img.src = `${basePath}img${i}.jpg`;
+                        img.alt = `Input image ${i+1} for ${sceneData.folder}`;
+                        img.onerror = () => { img.style.display = 'none'; }; // Hide if image fails to load
+                        modalImageGallery.appendChild(img);
+                    }
+                } else if (viewerType === 'sem') {
+                    // New dataset with a single image
+                    modalTitle.textContent = 'Input Image (New Dataset)';
+                    modalImageGallery.classList.add('single-image');
+    
+                    const imgPath = inputImagesData.sem[currentSceneIndex];
+                    const img = document.createElement('img');
+                    img.src = imgPath;
+                    img.alt = `Input image for new dataset`;
+                    modalImageGallery.appendChild(img);
+                }
+    
+                modal.style.display = 'block';
+            });
+        });
 
         function updateViewers() {
             const iframeIdLeft = config.iframeNames.geo?.[currentSceneIndex]?.[currentOptionIndex];
@@ -231,9 +312,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- Global Listeners ---
-    window.addEventListener('click', () => {
-        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-            menu.classList.remove('show');
-        });
+    window.addEventListener('click', (e) => {
+        // Close dropdowns if clicked outside
+        if (!e.target.matches('.dropdown-btn, .dropdown-btn *')) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
     });
 });
