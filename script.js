@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ['Ethernet Dongle; Port', 'Ethernet Dongle; USB', 'Power Strip; Base'],
         ['Rose; Plant Stem', 'Daisy; Plant Stem', 'Rose; White Vase', 'Daisy; White Vase'],
         ['Measuring Tape; Base', 'Screwdriver; Handle', 'Plier; Handle', 'Hammer; Handle', 'Soldering Iron; Handle'],
-        ['Camera; Base', 'Pink Sunglasses; Earhooks', 'Black Sunglasses; Earhooks', 'Lightbulb; Screw'],
+        ['Camera; Strap', 'Pink Sunglasses; Earhooks', 'Black Sunglasses; Earhooks', 'Lightbulb; Screw'],
         ['Black Pot; Handle', 'Electric Stove; Knob', 'Purple Onion; Leaf', 'Golden Bottle; Neck']
     ];
 
@@ -62,25 +62,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = document.querySelector(config.containerSelector);
         if (!container) return;
 
-        const allIframeElements = Array.from(container.querySelectorAll('.iframe'));
+        const leftIframeElements = Array.from(container.querySelectorAll('.viewer-left .iframe'));
+        const rightIframeElements = Array.from(container.querySelectorAll('.viewer-right .iframe'));
         const thumbnails = container.querySelectorAll('.thumbnail-btn');
-        const toggle = container.querySelector('.opacity-toggle');
         const dropdownBtn = container.querySelector('.dropdown-btn');
         const selectedOptionSpan = container.querySelector('.selected-option');
-        // *** THE FIX IS HERE: Changed '.options-menu' to '.dropdown-menu' ***
         const dropdownMenu = container.querySelector('.dropdown-menu');
         const slideLeftBtn = container.querySelector('.slide-arrow-prev');
         const slideRightBtn = container.querySelector('.slide-arrow-next');
         
         let currentSceneIndex = 0;
         let currentOptionIndex = 0;
-        let currentType = 'sem';
 
-        function showIframe() {
-            const iframeIdToShow = config.iframeNames[currentType]?.[currentSceneIndex]?.[currentOptionIndex];
+        function updateViewers() {
+            const iframeIdLeft = config.iframeNames.geo?.[currentSceneIndex]?.[currentOptionIndex];
+            const iframeIdRight = config.iframeNames.sem?.[currentSceneIndex]?.[currentOptionIndex];
             
-            allIframeElements.forEach(iframe => {
-                if (iframe.id === iframeIdToShow) {
+            leftIframeElements.forEach(iframe => {
+                if (iframe.id === iframeIdLeft) {
+                    if (iframe.getAttribute('src') === 'about:blank') {
+                        iframe.setAttribute('src', iframe.dataset.src);
+                    }
+                    iframe.classList.add('show');
+                } else {
+                    if (iframe.getAttribute('src') !== 'about:blank') {
+                        iframe.setAttribute('src', 'about:blank');
+                    }
+                    iframe.classList.remove('show');
+                }
+            });
+
+            rightIframeElements.forEach(iframe => {
+                if (iframe.id === iframeIdRight) {
                     if (iframe.getAttribute('src') === 'about:blank') {
                         iframe.setAttribute('src', iframe.dataset.src);
                     }
@@ -99,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function updateDropdown() {
-            // Guard against viewers that don't have a dropdown (like Results 1)
             if (!dropdownMenu || !selectedOptionSpan) return;
 
             const options = config.options[currentSceneIndex] || [];
@@ -115,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentOptionIndex = index;
                     selectedOptionSpan.textContent = optionText;
                     dropdownMenu.classList.remove('show');
-                    showIframe();
+                    updateViewers();
                 };
                 dropdownMenu.appendChild(li);
             });
@@ -125,21 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
             currentSceneIndex = sceneIndex;
             currentOptionIndex = 0;
             updateDropdown();
-            showIframe();
+            updateViewers();
         }
 
         thumbnails.forEach((thumb, index) => {
             thumb.addEventListener('click', () => selectScene(index));
         });
 
-        if (toggle) {
-            toggle.addEventListener('change', (event) => {
-                currentType = event.currentTarget.checked ? 'sem' : 'geo';
-                showIframe();
-            });
-        }
-
-        // Add listener only if the dropdown button and menu exist in this container
         if (dropdownBtn && dropdownMenu) {
             dropdownBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -167,29 +171,69 @@ document.addEventListener('DOMContentLoaded', () => {
         selectScene(0);
     }
 
+    // --- LAZY LOADING AND SWITCHER LOGIC ---
+    const resultSections = document.querySelectorAll('.results-section');
+    const switcherInputs = document.querySelectorAll('.results-switcher input[name="results-toggle"]');
+
+    function lazyInitialize(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section && !section.dataset.initialized) {
+            switch (sectionId) {
+                case 'results1-container':
+                    initializeViewer({
+                        containerSelector: '#results1-container',
+                        iframeNames: iframe_names_1,
+                        options: optionsSets_1
+                    });
+                    break;
+                case 'results2-container':
+                    initializeViewer({
+                        containerSelector: '#results2-container',
+                        iframeNames: iframe_names_2,
+                        options: optionsSets_2
+                    });
+                    break;
+                case 'results3-container':
+                    initializeViewer({
+                        containerSelector: '#results3-container',
+                        iframeNames: iframe_names_3,
+                        options: optionsSets_3
+                    });
+                    break;
+            }
+            section.dataset.initialized = 'true';
+        }
+    }
+
+    switcherInputs.forEach(input => {
+        input.addEventListener('change', (event) => {
+            const targetId = event.currentTarget.value;
+
+            // Hide all sections
+            resultSections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show the target section
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Lazily initialize the newly activated section if it hasn't been already
+            lazyInitialize(targetId);
+        });
+    });
+
+    // --- INITIAL PAGE LOAD ---
+    // Lazily initialize only the first, default-active section.
+    lazyInitialize('results1-container');
+
+
     // --- Global Listeners ---
     window.addEventListener('click', () => {
         document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
             menu.classList.remove('show');
         });
-    });
-
-    // --- INITIALIZE ALL VIEWERS ---
-    initializeViewer({
-        containerSelector: '#results1-container',
-        iframeNames: iframe_names_1,
-        options: optionsSets_1
-    });
-
-    initializeViewer({
-        containerSelector: '#results2-container',
-        iframeNames: iframe_names_2,
-        options: optionsSets_2
-    });
-
-    initializeViewer({
-        containerSelector: '#results3-container',
-        iframeNames: iframe_names_3,
-        options: optionsSets_3
     });
 });
