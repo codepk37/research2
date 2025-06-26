@@ -1,13 +1,12 @@
+
+// --- START OF FILE script.js ---
+
 // --- START OF FILE script.js ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- NEW: DATA FOR INPUT IMAGES ---
-    // NOTE: Please verify the folder names and image counts are correct.
-    // The folder names must exactly match your directory structure, including spaces.
-    // I am assuming 35 images per folder (img0.jpg to img34.jpg) for the old dataset.
     const inputImagesData = {
-        // 'geo' corresponds to the Original (Old) dataset
         geo: [
             { folder: 'colorful mugs', count: 35 },
             { folder: 'cords', count: 35 },
@@ -15,35 +14,47 @@ document.addEventListener('DOMContentLoaded', () => {
             { folder: 'tools', count: 35 },
             { folder: 'fragile items', count: 35 },
             { folder: 'cooking', count: 35 }
-        ],
-        // 'sem' corresponds to the Created (New) dataset
-        sem: [
-            'data_sv/thumbnails/blackmug_thumbnail.png',
-            'data_sv/thumbnails/coords.png',
-            'data_sv/thumbnails/flowers.png',
-            'data_sv/thumbnails/tools.png',
-            'data_sv/thumbnails/fragile.png',
-            'data_sv/thumbnails/cooking.png'
         ]
     };
 
-    // --- NEW: MODAL LOGIC (GLOBAL) ---
-    const modal = document.getElementById('image-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalImageGallery = document.getElementById('modal-image-gallery');
-    const closeModalBtn = document.querySelector('.modal-close');
+    // --- NEW: SIDEBAR LOGIC (GLOBAL) ---
+    const interactiveWrapper = document.getElementById('interactive-content-wrapper');
+    const sidebarImageGallery = document.getElementById('sidebar-image-gallery');
+    const showImagesBtn = document.getElementById('show-images-btn');
+    const closeSidebarBtn = document.getElementById('sidebar-close-btn');
+    let globalCurrentSceneIndex = 0; // Global tracker for the active scene
 
-    if (modal) {
-        closeModalBtn.onclick = () => {
-            modal.style.display = 'none';
-        };
-    
-        window.onclick = (event) => {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        };
+    function updateImageSidebar(sceneIndex) {
+        if (!sidebarImageGallery) return;
+
+        sidebarImageGallery.innerHTML = ''; // Clear previous content
+        
+        const sceneData = inputImagesData.geo[sceneIndex];
+        if (!sceneData) return;
+
+        const basePath = `data_sv/lerftogo_dataset/${sceneData.folder}/`;
+        for (let i = 0; i < sceneData.count; i++) {
+            const img = document.createElement('img');
+            img.src = `${basePath}img${i}.jpg`;
+            img.alt = `Input image ${i+1} for ${sceneData.folder}`;
+            img.onerror = () => { img.style.display = 'none'; }; // Hide if image fails to load
+            sidebarImageGallery.appendChild(img);
+        }
     }
+
+    if (showImagesBtn) {
+        showImagesBtn.addEventListener('click', () => {
+            updateImageSidebar(globalCurrentSceneIndex);
+            interactiveWrapper.classList.add('sidebar-visible');
+        });
+    }
+
+    if (closeSidebarBtn) {
+        closeSidebarBtn.addEventListener('click', () => {
+            interactiveWrapper.classList.remove('sidebar-visible');
+        });
+    }
+
 
     // --- DATA FOR ALL VIEWERS ---
     const iframe_names_1 = {
@@ -113,47 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdownMenu = container.querySelector('.dropdown-menu');
         const slideLeftBtn = container.querySelector('.slide-arrow-prev');
         const slideRightBtn = container.querySelector('.slide-arrow-next');
-        const showInputBtns = container.querySelectorAll('.show-inputs-btn');
         
         let currentSceneIndex = 0;
         let currentOptionIndex = 0;
-
-        // --- NEW: EVENT LISTENERS FOR 'SHOW INPUTS' BUTTONS ---
-        showInputBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const viewerType = btn.dataset.viewerType; // 'geo' or 'sem'
-    
-                modalImageGallery.innerHTML = ''; // Clear previous content
-                
-                if (viewerType === 'geo') {
-                    // Old dataset with multiple images
-                    modalTitle.textContent = 'Input Images';
-                    modalImageGallery.classList.remove('single-image');
-    
-                    const sceneData = inputImagesData.geo[currentSceneIndex];
-                    const basePath = `data_sv/lerftogo_dataset/${sceneData.folder}/`;
-                    for (let i = 0; i < sceneData.count; i++) {
-                        const img = document.createElement('img');
-                        img.src = `${basePath}img${i}.jpg`;
-                        img.alt = `Input image ${i+1} for ${sceneData.folder}`;
-                        img.onerror = () => { img.style.display = 'none'; }; // Hide if image fails to load
-                        modalImageGallery.appendChild(img);
-                    }
-                } else if (viewerType === 'sem') {
-                    // New dataset with a single image
-                    modalTitle.textContent = 'Input Image';
-                    modalImageGallery.classList.add('single-image');
-    
-                    const imgPath = inputImagesData.sem[currentSceneIndex];
-                    const img = document.createElement('img');
-                    img.src = imgPath;
-                    img.alt = `Input image for new dataset`;
-                    modalImageGallery.appendChild(img);
-                }
-    
-                modal.style.display = 'block';
-            });
-        });
 
         function updateViewers() {
             const iframeIdLeft = config.iframeNames.geo?.[currentSceneIndex]?.[currentOptionIndex];
@@ -216,9 +189,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function selectScene(sceneIndex) {
             currentSceneIndex = sceneIndex;
+            globalCurrentSceneIndex = sceneIndex; // Update the global tracker
             currentOptionIndex = 0;
             updateDropdown();
             updateViewers();
+            // If the sidebar is already open, update its content
+            if (interactiveWrapper.classList.contains('sidebar-visible')) {
+                updateImageSidebar(currentSceneIndex);
+            }
         }
 
         thumbnails.forEach((thumb, index) => {

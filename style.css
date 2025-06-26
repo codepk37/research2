@@ -1,5 +1,7 @@
 --- START OF FILE style.css ---
 
+--- START OF FILE style.css ---
+
 body {
     margin: 0;
     min-height: 100%;
@@ -13,8 +15,6 @@ body {
 
 .section {
     text-align: center;
-    margin-left: 30px;
-    margin-right: 30px;
 }
 
 .container {
@@ -23,6 +23,85 @@ body {
     margin-right: auto;
     max-width: 1550px; 
 }
+
+/* NEW: Layout for main content and sidebar */
+#interactive-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 20px;
+    transition: grid-template-columns 0.4s ease-in-out;
+}
+
+#interactive-content-wrapper.sidebar-visible {
+    grid-template-columns: 1fr 300px; /* Two columns when sidebar is active */
+}
+
+.main-content {
+    transition: width 0.4s ease-in-out;
+}
+
+#image-sidebar {
+    background-color: #f8f9fa;
+    border-left: 1px solid #e9ecef;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    transform: translateX(100%); /* Hidden off-screen */
+    transition: transform 0.4s ease-in-out;
+    z-index: 999;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+
+#interactive-content-wrapper.sidebar-visible #image-sidebar {
+    transform: translateX(0); /* Slide in */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#sidebar-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.sidebar-close-btn {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-close-btn:hover {
+    background-color: #e0e0e0;
+}
+
+#sidebar-image-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+#sidebar-image-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 
 .title {
     margin-top: 0px;
@@ -323,13 +402,13 @@ iframe.show {
     margin-bottom: 10px;
     height: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
 
 #results1-container .video-bar {
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .video-btn {
@@ -417,13 +496,9 @@ iframe.show {
     margin-bottom: 15px;
 }
 
-/* --- THIS IS THE RULE TO MODIFY --- */
 .methodology-explanation p {
-    /* You can change this number to make the font bigger or smaller. */
     font-size: 20px;
-    /* Adjust this for spacing (1.5 to 1.7 is good). */
     line-height: 1.6;
-    /* This aligns the text to the left. */
     text-align: left;
 }
 
@@ -561,6 +636,51 @@ iframe.show {
     display: block;
 }
 
+.show-inputs-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.show-inputs-btn:hover {
+    background-color: #e0e0e0;
+}
+
+
+@media screen and (max-width: 1024px) {
+    #interactive-content-wrapper {
+        grid-template-columns: 1fr; /* Stack main content and sidebar */
+    }
+    #image-sidebar {
+        width: 100%;
+        height: auto; /* Allow height to be determined by content */
+        position: relative; /* Remove sticky/fixed positioning */
+        transform: translateX(0); /* Ensure it's visible */
+        margin-top: 30px;
+        border-left: none;
+        border-top: 1px solid #e9ecef;
+        display: none; /* Hide sidebar by default on smaller screens */
+    }
+    #interactive-content-wrapper.sidebar-visible #image-sidebar {
+        display: block; /* Show it when the class is added */
+    }
+    #sidebar-image-gallery {
+        flex-direction: row; /* Go back to horizontal scrolling on small screens */
+        height: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    #sidebar-image-gallery img {
+        width: auto;
+        height: 150px; /* Smaller images for horizontal scroll */
+    }
+}
+
 @media screen and (max-width: 750px) {
     .viewer-wrapper {
         flex-direction: column;
@@ -586,98 +706,4 @@ iframe.show {
     .slide-arrow {
         margin-top: 15px;
     }
-}
-
-/* --- NEW: MODAL AND INPUT BUTTON STYLES --- */
-.show-inputs-btn {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: background-color 0.2s;
-}
-
-.show-inputs-btn:hover {
-    background-color: #e0e0e0;
-}
-
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.6); 
-    padding-top: 60px;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 1200px;
-    border-radius: 10px;
-    position: relative;
-    animation: fadeInDown 0.3s ease;
-}
-
-.modal-close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#modal-title {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-}
-
-.modal-image-gallery {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 15px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    padding: 15px;
-    min-height: 230px;
-}
-
-.modal-image-gallery img {
-    height: 200px; 
-    width: auto;
-    border-radius: 5px;
-    flex-shrink: 0; 
-}
-
-/* Style for single image view */
-.modal-image-gallery.single-image {
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-image-gallery.single-image img {
-   height: auto;
-   max-height: 70vh;
-   max-width: 100%;
 }
