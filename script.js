@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- NEW: SIDEBAR LOGIC (GLOBAL) ---
     const interactiveWrapper = document.getElementById('interactive-content-wrapper');
     const sidebarImageGallery = document.getElementById('sidebar-image-gallery');
-    const showImagesBtn = document.getElementById('show-images-btn');
+    const showImagesBtns = document.querySelectorAll('.show-inputs-btn');
     const closeSidebarBtn = document.getElementById('sidebar-close-btn');
     let globalCurrentSceneIndex = 0; // Global tracker for the active scene
 
@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (showImagesBtn) {
-        showImagesBtn.addEventListener('click', () => {
+    showImagesBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
             updateImageSidebar(globalCurrentSceneIndex);
             interactiveWrapper.classList.add('sidebar-visible');
         });
-    }
+    });
 
     if (closeSidebarBtn) {
         closeSidebarBtn.addEventListener('click', () => {

@@ -2,6 +2,8 @@
 
 --- START OF FILE style.css ---
 
+--- START OF FILE style.css ---
+
 body {
     margin: 0;
     min-height: 100%;
@@ -405,10 +407,6 @@ iframe.show {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-}
-
-#results1-container .video-bar {
-    justify-content: space-between;
 }
 
 .video-btn {
