@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ['flowers-rose-sem-2', 'flowers-daisy-sem-2', 'flowers-rose-vase-sem-2', 'flowers-daisy-vase-sem-2'],
             ['tools-measuring-sem-2', 'tools-screwdriver-sem-2', 'tools-wirecutter-sem-2', 'tools-hammer-sem-2', 'tools-solder-sem-2'],
             ['fragile-camera-sem-2', 'fragile-pinksunglasses-sem-2', 'fragile-bluesunglasses-sem-2', 'fragile-lightbulb-sem-2'],
-            ['black-pot-handle-sem-2', 'electric-stove-sem-2', 'purple-onion-sem-2', 'golden-bottle-sem-2']
+            ['black-pot-handle-sem-2', 'purple-onion-sem-2', 'golden-bottle-sem-2']
         ],
         geo: [
             ['colormug-black-geo-2', 'colormug-white-geo-2', 'colormug-blue-geo-2', 'colormug-pink-geo-2', 'colormug-teal-geo-2'],
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ['flowers-rose-geo-2', 'flowers-daisy-geo-2', 'flowers-rose-vase-geo-2', 'flowers-daisy-vase-geo-2'],
             ['tools-measuring-geo-2', 'tools-screwdriver-geo-2', 'tools-wirecutter-geo-2', 'tools-hammer-geo-2', 'tools-solder-geo-2'],
             ['fragile-camera-geo-2', 'fragile-pinksunglasses-geo-2', 'fragile-bluesunglasses-geo-2', 'fragile-lightbulb-geo-2'],
-            ['black-pot-handle-geo-2', 'electric-stove-geo-2', 'purple-onion-geo-2', 'golden-bottle-geo-2']
+            ['black-pot-handle-geo-2', 'purple-onion-geo-2', 'golden-bottle-geo-2']
         ]
     };
     const optionsSets_2 = [
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ['Rose; Plant Stem', 'Daisy; Plant Stem', 'Rose; White Vase', 'Daisy; White Vase'],
         ['Measuring Tape; Base', 'Screwdriver; Handle', 'Plier; Handle', 'Hammer; Handle', 'Soldering Iron; Handle'],
         ['Camera; Base', 'Pink Sunglasses; Earhooks', 'Black Sunglasses; Earhooks', 'Lightbulb; Screw'],
-        ['Black Pot; Handle', 'Electric Stove; Knob', 'Purple Onion; Leaf', 'Golden Bottle; Neck']
+        ['Black Pot; Handle', 'Purple Onion; Leaf', 'Golden Bottle; Neck']
     ];
 
     const iframe_names_3 = {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ['flowers-rose-sem-3', 'flowers-daisy-sem-3', 'flowers-rose-vase-sem-3', 'flowers-daisy-vase-sem-3'],
             ['tools-measuring-sem-3', 'tools-screwdriver-sem-3', 'tools-wirecutter-sem-3', 'tools-hammer-sem-3', 'tools-solder-sem-3'],
             ['fragile-camera-sem-3', 'fragile-pinksunglasses-sem-3', 'fragile-bluesunglasses-sem-3', 'fragile-lightbulb-sem-3'],
-            ['black-pot-handle-sem-3', 'electric-stove-sem-3', 'purple-onion-sem-3', 'golden-bottle-sem-3']
+            ['black-pot-handle-sem-3', 'purple-onion-sem-3', 'golden-bottle-sem-3']
         ],
         geo: [
             ['colormug-black-geo-3', 'colormug-white-geo-3', 'colormug-blue-geo-3', 'colormug-pink-geo-3', 'colormug-teal-geo-3'],
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ['flowers-rose-geo-3', 'flowers-daisy-geo-3', 'flowers-rose-vase-geo-3', 'flowers-daisy-vase-geo-3'],
             ['tools-measuring-geo-3', 'tools-screwdriver-geo-3', 'tools-wirecutter-geo-3', 'tools-hammer-geo-3', 'tools-solder-geo-3'],
             ['fragile-camera-geo-3', 'fragile-pinksunglasses-geo-3', 'fragile-bluesunglasses-geo-3', 'fragile-lightbulb-geo-3'],
-            ['black-pot-handle-geo-3', 'electric-stove-geo-3', 'purple-onion-geo-3', 'golden-bottle-geo-3']
+            ['black-pot-handle-geo-3', 'purple-onion-geo-3', 'golden-bottle-geo-3']
         ]
     };
     const optionsSets_3 = optionsSets_2;
