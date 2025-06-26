@@ -6,8 +6,8 @@ body {
     background-color: #fff;
     font-family: 'Open Sans',sans-serif;
     color: #333;
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 24px;
     overflow-x: hidden;
 }
 
@@ -400,6 +400,31 @@ iframe.show {
 .results-container {
     padding-bottom: 20px;
     border-bottom: 2px solid #eee;
+}
+
+/* Main explanation block styles */
+.methodology-explanation {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.methodology-explanation h3 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 24px; 
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* --- THIS IS THE RULE TO MODIFY --- */
+.methodology-explanation p {
+    /* You can change this number to make the font bigger or smaller. */
+    font-size: 20px;
+    /* Adjust this for spacing (1.5 to 1.7 is good). */
+    line-height: 1.6;
+    /* This aligns the text to the left. */
+    text-align: left;
 }
 
 /* New styles for the 3-way switcher */

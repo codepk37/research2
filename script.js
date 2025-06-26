@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (viewerType === 'geo') {
                     // Old dataset with multiple images
-                    modalTitle.textContent = 'Input Images (Original Dataset)';
+                    modalTitle.textContent = 'Input Images';
                     modalImageGallery.classList.remove('single-image');
     
                     const sceneData = inputImagesData.geo[currentSceneIndex];
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 } else if (viewerType === 'sem') {
                     // New dataset with a single image
-                    modalTitle.textContent = 'Input Image (New Dataset)';
+                    modalTitle.textContent = 'Input Image';
                     modalImageGallery.classList.add('single-image');
     
                     const imgPath = inputImagesData.sem[currentSceneIndex];
